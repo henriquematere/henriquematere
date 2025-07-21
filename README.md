@@ -1,35 +1,39 @@
-<p align="center">
-  <img src="https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
-  <img src="https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
-  <img src="https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
-  <img src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
-  <img src="https://img.shields.io/badge/-SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white"/>
-  <img src="https://img.shields.io/badge/-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white"/>
-</p>
+<!-- Pacman animado no topo -->
+![Pacman](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=24&pause=1000&center=true&width=435&lines=Olá%2C+eu+sou+Henrique+Matere!;Bem-vindo+ao+meu+GitHub+%F0%9F%91%8B)
 
-<p align="center">
-  <img height="160" src="https://github-readme-stats.vercel.app/api?username=henriquematere&show_icons=true&theme=dracula" />
-  <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=henriquematere&layout=compact&hide=html" />
-</p>
+<div align="center">
+  <img src="https://skillicons.dev/icons?i=python,flask,html,css,js,sqlite,streamlit" />
+</div>
+
+## Sobre mim
+
+Desenvolvedor Python focado em automação e projetos web. Apaixonado por resolver problemas com código, sempre buscando aprender mais e compartilhar conhecimento.
 
 ---
 
-🔗 **Projetos em destaque:**
-<p>
-  <a href="https://github.com/henriquematere/ZeroFilaMed">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=henriquematere&repo=ZeroFilaMed&theme=dracula" />
-  </a>
-  <a href="https://github.com/henriquematere/Projeto_Arbitragem">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=henriquematere&repo=Projeto_Arbitragem&theme=dracula" />
-  </a>
-  <a href="https://github.com/henriquematere/CarPoint">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=henriquematere&repo=CarPoint&theme=dracula" />
-  </a>
-  <a href="https://github.com/henriquematere/TelevisaoIF">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=henriquematere&repo=TelevisaoIF&theme=dracula" />
-  </a>
-</p>
+## 📈 Minhas estatísticas
+![Henrique's GitHub stats](https://github-readme-stats.vercel.app/api?username=henriquematere&show_icons=true&theme=radical)
 
-Veja todos os meus repositórios [aqui](https://github.com/henriquematere?tab=repositories)
+[![Ashutosh's github activity graph](https://github-readme-activity-graph.vercel.app/api?username=henriquematere&theme=react-dark)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
+---
 
+## 🚀 Projetos em destaque
+
+- **[ZeroFilaMed](link_projeto)**  
+  Sistema para controle de filas em clínicas (Python, Flask, SQLite)  
+  _Resolvi um problema real de gestão de filas. Aprendi muito sobre web e banco de dados!_
+
+- **[TelevisaoIF](link_projeto)**  
+  Painel de avisos para TVs (Python, Flask)
+
+---
+
+## 📫 Me encontre por aí
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?logo=linkedin)](https://www.linkedin.com/in/seu-linkedin)  
+[![Gmail](https://img.shields.io/badge/-Gmail-red?logo=gmail)](mailto:seu@email.com)
+
+---
+
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer)

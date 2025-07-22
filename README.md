@@ -25,6 +25,28 @@
     <img src="https://spotify-recently-played-readme.vercel.app/api?user=223npm537xilloympkw73smli&count=1&unique=false" alt="Spotify recently played"  />
   </a>
 </div>
+
+## 🌟 Projetos em destaque
+
+<p align="center">
+  <a href="https://github.com/henriquematere/ZeroFilaMed">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=henriquematere&repo=ZeroFilaMed&theme=github_dark" />
+  </a>
+  <a href="https://github.com/henriquematere/Projeto_Arbitragem">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=henriquematere&repo=Projeto_Arbitragem&theme=github_dark" />
+  </a>
+  <a href="https://github.com/henriquematere/CarPoint">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=henriquematere&repo=CarPoint&theme=github_dark" />
+  </a>
+  <a href="https://github.com/henriquematere/TelevisaoIF">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=henriquematere&repo=TelevisaoIF&theme=github_dark" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/henriquematere?tab=repositories"><b>Veja todos os meus repositórios</b></a>
+</p>
+
 <img src="https://raw.githubusercontent.com/henriquematere/henriquematere/output/snake.svg" alt="Snake animation" />
 
 ###

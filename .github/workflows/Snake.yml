@@ -11,15 +11,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
       - uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
             dist/snake.svg
             dist/snake-dark.svg?palette=github-dark
+
       - name: Push Snake files to output branch
-        uses: EndBug/add-and-commit@v9
-        with:
-          branch: output
-          message: "Generate snake animation"
-          add: "dist/*.svg"
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git checkout --orphan output
+          git --work-tree=dist add --all
+          git --work-tree=dist commit -m "Generate snake animation"
+          git push origin HEAD:output --force

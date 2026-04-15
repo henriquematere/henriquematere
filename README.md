@@ -1,10 +1,4 @@
 <div align="center">
-
-  👨‍💻 **Assistente de TI na Gala IBB** | Automação de processos e desenvolvimento web
-
-</div>
-
-<div align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
@@ -25,11 +19,11 @@
 </div>
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=henriquematere&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=github_dark&hide_border=false&order=2" height="150" alt="languages graph"  />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=henriquematere&locale=en&hide_title=false&layout=compact&card_width=495&langs_count=5&theme=github_dark&hide_border=false&order=2" height="150" alt="languages graph"  />
 </div>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=henriquematere&theme=github-dark-blue" alt="GitHub Streak" />
+  <img src="https://streak-stats.demolab.com/?user=henriquematere&theme=github-dark-blue" alt="GitHub Streak" />
 </div>
 
 <div align="center">
@@ -39,6 +33,6 @@
 </div>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/henriquematere/henriquematere/output/snake.svg" alt="Snake animation" />
+  <img src="https://raw.githubusercontent.com/henriquematere/henriquematere/output/snake.svg" alt="Snake animation" width="100%" />
 </div>
 

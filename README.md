@@ -19,7 +19,7 @@
 
 Sou desenvolvedor full-stack formado em **Análise e Desenvolvimento de Sistemas (IFMS)** e atuo com desenvolvimento e automação de processos na Gala IBB. Pela minha marca, a **Hemaco IT**, entrego sistemas internos, automações em Python e painéis web para empresas que ainda dependem de planilha, papel e processos manuais.
 
-Gosto de resolver **problema de negócio real**: pego uma operação bagunçada e devolvo um sistema organizado, rastreável e no ar. Uso IA (Claude, Codex) no meu fluxo para entregar rápido e com qualidade, e estou aprofundando em **automação com IA e agentes**.
+Gosto de resolver **problema de negócio real**: pego uma operação bagunçada e devolvo um sistema organizado, rastreável e no ar. Também me interesso por **automação com IA e agentes**, área que estou aprofundando.
 
 📫 Tem um processo manual travando seu negócio? Fala comigo pela **[Hemaco IT](https://hemaco.com.br)**.
 

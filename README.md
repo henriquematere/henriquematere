@@ -4,7 +4,7 @@
 
 ### 💻 Desenvolvedor Full-Stack · Fundador da [Hemaco IT](https://hemaco.com.br)
 
-**Tiro sua operação da planilha, do papel e da agenda — com sistemas sob medida e automações que organizam o negócio.**
+**Tiro sua operação da planilha, do papel e da agenda, com sistemas sob medida e automações que organizam o negócio.**
 
 <a href="https://hemaco.com.br"><img src="https://img.shields.io/badge/Portf%C3%B3lio-hemaco.com.br-6C2BD9?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Site" /></a>
 <a href="https://www.linkedin.com/in/henriquematere/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
@@ -56,7 +56,7 @@ Gosto de resolver **problema de negócio real**: pego uma operação bagunçada 
 
 ## 🚀 Projetos em destaque
 
-> Meus sistemas são de clientes e ficam em **repositório privado** por confidencialidade. Abaixo, uma amostra do que já construí — os cases completos estão em **[hemaco.com.br](https://hemaco.com.br)**. Posso apresentar o código em processos seletivos, mediante combinação.
+> Meus sistemas são de clientes e ficam em **repositório privado** por confidencialidade. Abaixo, uma amostra do que já construí. Os cases completos estão em **[hemaco.com.br](https://hemaco.com.br)**. Posso apresentar o código em processos seletivos, mediante combinação.
 
 | Projeto | O que resolve | Stack |
 |---|---|---|

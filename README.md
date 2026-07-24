@@ -4,7 +4,7 @@
 
 ### 💻 Full-Stack Developer · Internal systems, PWAs & process automation
 
-**I build the systems that replace spreadsheets, paper and manual process — from the data model to production deployment.**
+**I build the systems that replace spreadsheets, paper and manual process, from the data model to production deployment.**
 
 <a href="https://hemaco.com.br"><img src="https://img.shields.io/badge/Portfolio-hemaco.com.br-6C2BD9?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" /></a>
 <a href="https://www.linkedin.com/in/henriquematere/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
@@ -16,11 +16,11 @@
 
 ## 👋 About me
 
-I am a full-stack developer, graduated in **Systems Analysis and Development (IFMS, Brazil)**. I work on development and process automation at **Gala IBB**, and I run my own projects under the **[Hemaco IT](https://hemaco.com.br)** brand — internal systems, Python automations and web dashboards for companies still running on spreadsheets, paper and manual process.
+I am a full-stack developer, graduated in **Systems Analysis and Development (IFMS, Brazil)**. I work on development and process automation at **Gala IBB**, and I run my own projects under the **[Hemaco IT](https://hemaco.com.br)** brand: internal systems, Python automations and web dashboards for companies still running on spreadsheets, paper and manual process.
 
-What I like is solving a **real business problem**: take a messy operation and hand back a system that is organized, traceable and live in production. I am currently going deeper into **AI- and agent-driven automation**.
+What I like is solving a **real business problem**. I take a messy operation and hand back a system that is organized, traceable and live in production. I am currently going deeper into **automation with AI and agents**.
 
-The shape repeats across most of what I ship: an installable client that keeps working without network, a lean API, a separate worker for anything that must not block a request, and versioned deploys to my own VPS.
+The same shape repeats across most of what I ship: an installable client that keeps working without network, a lean API, a separate worker for anything that must not block a request, and versioned deploys to my own VPS.
 
 ---
 
@@ -69,13 +69,13 @@ The shape repeats across most of what I ship: an installable client that keeps w
 
 ## 🚀 Selected Projects
 
-> My systems run for clients and for internal use, and they live in **private repositories** for confidentiality — that is why this profile has no open code. Private does not mean opaque: I walk through the architecture, the technical decisions and the code itself on request. Case studies at **[hemaco.com.br](https://hemaco.com.br)**.
+> My systems run for clients and for internal use, and they live in **private repositories** for confidentiality. That is why this profile has no open code. Private does not mean opaque: I walk through the architecture, the technical decisions and the code itself on request. Case studies at **[hemaco.com.br](https://hemaco.com.br)**.
 
-**🧾 Offline-first POS — retail store**
+**🧾 Offline-first POS for a retail store**
 Checkout that keeps running when the internet drops. Local SQLite as the source of truth during the shift, a pending-operations queue, and conflict resolution on reconnect. Installable PWA, organized as a monorepo.
 `React + Vite` · `Fastify` · `SQLite` · `Docker`
 
-**📣 Offer panel with WhatsApp broadcast — pharmacy**
+**📣 Offer panel with WhatsApp broadcast for a pharmacy**
 Offer registration and automatic broadcast to a group. The broadcast runs in a worker separate from the web app, in its own process, so it never blocks a request nor drops a message if the service goes down. Includes a documented credential-rotation routine.
 `Flask` · `Python` · `WPPConnect` · `pytest`
 

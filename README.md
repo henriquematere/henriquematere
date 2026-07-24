@@ -24,6 +24,16 @@ The same shape repeats across most of what I ship: an installable client that ke
 
 ---
 
+## 📊 Activity
+
+<div align="center">
+
+![Streak](https://streak-stats.demolab.com/?user=henriquematere&hide_border=true&theme=github-dark-blue)
+
+</div>
+
+---
+
 ## 🛠️ Tech Stack
 
 **Frontend**
@@ -99,16 +109,6 @@ Self-hosted and multi-user, mobile-first PWA with offline support. Pulls B3 quot
 **🗓️ Clinic scheduling**
 The secretary controls the slots and each practitioner sees only their own schedule, on their phone. The scope is deliberately narrow: it is a scheduling system, and it stores no diagnosis and no clinical record.
 `Flask` · `Flask-Login` · `Tailwind`
-
----
-
-## 📊 Activity
-
-<div align="center">
-
-![Streak](https://streak-stats.demolab.com/?user=henriquematere&hide_border=true&theme=github-dark-blue)
-
-</div>
 
 ---
 

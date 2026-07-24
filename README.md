@@ -1,88 +1,85 @@
-<div align="center">
-
 # Henrique Matere
 
-### 💻 Desenvolvedor Full-Stack · Fundador da [Hemaco IT](https://hemaco.com.br)
+Full-stack developer. I build internal systems and PWAs for operations still running on spreadsheets and paper — from the data model to production deployment.
 
-**Tiro sua operação da planilha, do papel e da agenda, com sistemas sob medida e automações que organizam o negócio.**
-
-<a href="https://hemaco.com.br"><img src="https://img.shields.io/badge/Portf%C3%B3lio-hemaco.com.br-6C2BD9?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Site" /></a>
-<a href="https://www.linkedin.com/in/henriquematere/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-<a href="https://wa.me/5567981796968"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp" /></a>
-<a href="mailto:contato@hemaco.com.br"><img src="https://img.shields.io/badge/E--mail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="E-mail" /></a>
-
-</div>
+Graduated in Systems Analysis and Development (IFMS, Brazil). I work on development and process automation at Gala IBB, and run my own projects under the [Hemaco IT](https://hemaco.com.br) brand. I am currently going deeper into AI- and agent-driven automation.
 
 ---
 
-## 👋 Sobre mim
+## The architecture I ship
 
-Sou desenvolvedor full-stack formado em **Análise e Desenvolvimento de Sistemas (IFMS)** e atuo com desenvolvimento e automação de processos na Gala IBB. Pela minha marca, a **Hemaco IT**, entrego sistemas internos, automações em Python e painéis web para empresas que ainda dependem de planilha, papel e processos manuais.
+The same shape repeats across most of my systems: an installable client that keeps working without network, a lean API, a separate worker for anything that must not block a request, and versioned deploys to my own VPS.
 
-Gosto de resolver **problema de negócio real**: pego uma operação bagunçada e devolvo um sistema organizado, rastreável e no ar. Também me interesso por **automação com IA e agentes**, área que estou aprofundando.
+```mermaid
+flowchart LR
+  subgraph client["Client"]
+    PWA["Installable PWA<br/>React · Next.js"]
+    LOCAL[("Local state<br/>SQLite · IndexedDB")]
+  end
 
-📫 Tem um processo manual travando seu negócio? Fala comigo pela **[Hemaco IT](https://hemaco.com.br)**.
+  subgraph vps["VPS · Docker"]
+    NGINX["nginx<br/>TLS · reverse proxy"]
+    API["API<br/>Fastify · Flask"]
+    WORKER["Worker<br/>queue · jobs · broadcasts"]
+    DB[("PostgreSQL · SQLite")]
+  end
 
----
+  CI["GitHub Actions<br/>test · build · deploy"]
 
-## 🛠️ Tecnologias
-
-**Frontend**
-
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
-![Astro](https://img.shields.io/badge/Astro-BC52EE?style=for-the-badge&logo=astro&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind](https://img.shields.io/badge/Tailwind-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-
-**Backend**
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
-![Fastify](https://img.shields.io/badge/Fastify-000000?style=for-the-badge&logo=fastify&logoColor=white)
-
-**Mobile · Dados · Ferramentas**
-
-![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+  PWA <--> LOCAL
+  PWA -->|"sync on reconnect"| NGINX
+  NGINX --> API
+  API --> DB
+  API -->|"enqueue"| WORKER
+  WORKER --> DB
+  CI -.->|"versioned deploy"| vps
+```
 
 ---
 
-## 🚀 Projetos em destaque
+## Stack
 
-> Meus sistemas são de clientes e ficam em **repositório privado** por confidencialidade. Abaixo, uma amostra do que já construí. Os cases completos estão em **[hemaco.com.br](https://hemaco.com.br)**. Posso apresentar o código em processos seletivos, mediante combinação.
-
-| Projeto | O que resolve | Stack |
-|---|---|---|
-| **Caixa/PDV offline-first** | Frente de caixa que funciona sem internet e sincroniza os dados quando reconecta | React + Vite · Fastify · SQLite |
-| **Comanda digital para eventos** | Gestão de comandas, pedidos e vendas durante eventos | TypeScript |
-| **Agenda para clínica** | Agendamento e controle de atendimentos para uma clínica | Flask · Tailwind |
-| **Automação de ofertas no WhatsApp** | Painel para cadastrar ofertas de uma drogaria e disparar automaticamente em um grupo de WhatsApp | Python · WPPConnect |
-| **Controle financeiro familiar** | Finanças pessoais e familiares multiusuário, self-hosted, em PWA mobile-first | TypeScript |
-
-Outros: editor de plantas drag-and-drop para projeto residencial (Next.js), web scraping e utilitários de automação em Python.
+| Layer | Tools |
+|---|---|
+| **Frontend** | `Next.js` `React` `TypeScript` `Vite` `Tailwind` — PWA, offline-first, mobile-first |
+| **Backend** | `Fastify` `Node.js` `Flask` `Python` — REST APIs, queue workers, scheduled jobs |
+| **Data** | `PostgreSQL` `SQLite` `Drizzle` `Prisma` — modeling and versioned migrations |
+| **Infra** | `Docker` `nginx` `GitHub Actions` `Linux/VPS` — CI, deploy scripts, TLS |
+| **Automation** | `Selenium` `WPPConnect` `pandas` — scraping, WhatsApp integration, reporting |
+| **Testing & lint** | `pytest` `vitest` `ruff` `ESLint` |
 
 ---
 
-## 📊 GitHub
+## Projects
 
-<div align="center">
+> My systems run for clients and for internal use, and they live in **private repositories** for confidentiality — that is why this profile has no open code. Private does not mean opaque: I walk through the architecture, the technical decisions and the code itself on request. Case studies at [hemaco.com.br](https://hemaco.com.br).
 
-![Estatísticas](https://github-readme-stats.vercel.app/api?username=henriquematere&show_icons=true&hide_border=true&theme=github_dark_blue)
-![Streak](https://streak-stats.demolab.com/?user=henriquematere&hide_border=true&theme=github-dark-blue)
+**Offline-first POS — retail store**
+Checkout that keeps running when the internet drops. Local SQLite as the source of truth during the shift, a pending-operations queue, and conflict resolution on reconnect. Installable PWA, organized as a monorepo.
+`React + Vite` · `Fastify` · `SQLite` · `Docker`
 
-</div>
+**Offer panel with WhatsApp broadcast — pharmacy**
+Offer registration and automatic broadcast to a group. The broadcast runs in a worker separate from the web app, in its own process, so it never blocks a request nor drops a message if the service goes down. Includes a documented credential-rotation routine.
+`Flask` · `Python` · `WPPConnect` · `pytest`
+
+**Multi-user household finance tracker**
+Self-hosted, multi-profile with authentication, versioned migrations, mobile-first PWA. Deployed to my own VPS with Docker + nginx and a CI pipeline.
+`Next.js` · `TypeScript` · `Drizzle` · `PostgreSQL`
+
+**Digital tab system for events**
+Tabs, orders and sales during an event, with a kitchen display (KDS) designed for phones. Order/tab modeling and automated tests.
+`Next.js` · `Prisma` · `vitest`
+
+**Clinic scheduling**
+Appointment and visit management, with per-practitioner calendars.
+`Flask` · `Tailwind`
+
+**Drag-and-drop floor plan editor**
+Direct SVG manipulation with layout persistence, for a residential project of my own.
+`Next.js` · `SVG` · `Prisma`
 
 ---
 
-<div align="center">
+## Contact
 
-**Quer tirar sua operação da planilha?** Vamos conversar 👉 [hemaco.com.br](https://hemaco.com.br) · [WhatsApp](https://wa.me/5567981796968)
-
-</div>
+[LinkedIn](https://www.linkedin.com/in/henriquematere/) · [contato@hemaco.com.br](mailto:contato@hemaco.com.br) · [hemaco.com.br](https://hemaco.com.br)

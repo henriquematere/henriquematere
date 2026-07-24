@@ -69,31 +69,36 @@ The same shape repeats across most of what I ship: an installable client that ke
 
 ## 🚀 Selected Projects
 
-> My systems run for clients and for internal use, and they live in **private repositories** for confidentiality. That is why this profile has no open code. Private does not mean opaque: I walk through the architecture, the technical decisions and the code itself on request. Case studies at **[hemaco.com.br](https://hemaco.com.br)**.
+> These systems run for clients and for internal use, and they live in **private repositories** for confidentiality. That is why this profile has no open code. Private does not mean opaque: I walk through the architecture, the technical decisions and the code itself on request. Case studies at **[hemaco.com.br](https://hemaco.com.br)**.
 
-**🧾 Offline-first POS for a retail store**
-Checkout that keeps running when the internet drops. Local SQLite as the source of truth during the shift, a pending-operations queue, and conflict resolution on reconnect. Installable PWA, organized as a monorepo.
-`React + Vite` · `Fastify` · `SQLite` · `Docker`
+**✅ Safety and compliance checklist system** `in production for ~1 year, in daily use`
+Three role levels with a guard against privilege escalation, a full audit trail (logins, edits, deletions, password resets), feature flags, and a maintenance mode that returns 503 to everyone except the master account. Field photo upload handling EXIF and HEIC, reports in PDF, CSV and Excel, installable as a PWA.
+Operations: deploys run from GitHub Actions with the test suite gating them, a healthcheck after the systemd restart, and a concurrency group so two production deploys never overlap. Scheduled e-mail dispatch is protected by a database lock against double sending, backed by a watchdog and a backlog resend. Replacing an in-memory O(N) history scan with SQL pagination, eager loading and indexes fixed the main performance problem.
+`Flask` · `SQLAlchemy` · `PostgreSQL` · `GitHub Actions` · `systemd` · `pytest` · `ruff`
 
-**📣 Offer panel with WhatsApp broadcast for a pharmacy**
-Offer registration and automatic broadcast to a group. The broadcast runs in a worker separate from the web app, in its own process, so it never blocks a request nor drops a message if the service goes down. Includes a documented credential-rotation routine.
-`Flask` · `Python` · `WPPConnect` · `pytest`
+**🍽️ Multi-tenant tab and order system for bars and events**
+Multi-tenant, with database access scoped per tenant and covered by integration tests. The kitchen display streams over SSE for real time updates, orders route to preparation stations, and a schema-level constraint enforces one open order per table instead of trusting application code to do it.
+`Next.js` · `TypeScript` · `Prisma` · `PostgreSQL` · `Auth.js` · `vitest`
 
-**💰 Multi-user household finance tracker**
-Self-hosted, multi-profile with authentication, versioned migrations, mobile-first PWA. Deployed to my own VPS with Docker + nginx and a CI pipeline.
-`Next.js` · `TypeScript` · `Drizzle` · `PostgreSQL`
+**🧾 Offline-first POS**
+Checkout that keeps selling with the internet down. Offline state in IndexedDB through Dexie, and sync as an append-only log that is idempotent by UUID, with the final state derived from the log instead of resolved by overwrite. HMAC token issued at login so the app keeps working offline afterwards. Monorepo, deployed by GitHub Actions over SSH with Docker Compose behind nginx.
+`React + Vite` · `Fastify` · `node:sqlite` · `Dexie` · `Docker`
 
-**🍽️ Digital tab system for events**
-Tabs, orders and sales during an event, with a kitchen display (KDS) designed for phones. Order/tab modeling and automated tests.
-`Next.js` · `Prisma` · `vitest`
+**📣 WhatsApp offer automation for a pharmacy**
+Web and worker split into separate processes: Gunicorn behind nginx for the panel, and a worker with a dynamic scheduler for the automation itself. Send queue with retry and backoff, persistent automation state (running or paused, last success, last error), an endpoint to re-drive failed dispatches, a health endpoint, login lockout, CSRF on every mutating route, soft delete and an admin audit trail.
+`Flask` · `Python` · `WPPConnect` · `Gunicorn`
+
+**📐 Floor plan editor**
+Two engines carry the work: one derives walls from room geometry, the other validates rules such as window presence, setback, built area and overlap. Pure SVG canvas with pan, zoom and drag, undo and redo on the state store, and export to PNG and PDF.
+`Next.js` · `React` · `SVG` · `Zustand + zundo` · `dnd-kit` · `Prisma`
+
+**💰 Household finance and investment tracker**
+Self-hosted and multi-user, mobile-first PWA with offline support. Pulls B3 quotes from brapi.dev and CDI/SELIC rates from the Brazilian Central Bank API, so it tracks investments and not only expenses. Versioned migrations are the only accepted path to a production schema change.
+`Next.js` · `TypeScript` · `Drizzle` · `PostgreSQL` · `Auth.js` · `Serwist`
 
 **🗓️ Clinic scheduling**
-Appointment and visit management, with per-practitioner calendars.
-`Flask` · `Tailwind`
-
-**📐 Drag-and-drop floor plan editor**
-Direct SVG manipulation with layout persistence, for a residential project of my own.
-`Next.js` · `SVG` · `Prisma`
+The secretary controls the slots and each practitioner sees only their own schedule, on their phone. The scope is deliberately narrow: it is a scheduling system, and it stores no diagnosis and no clinical record.
+`Flask` · `Flask-Login` · `Tailwind`
 
 ---
 

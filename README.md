@@ -24,6 +24,16 @@ The same shape repeats across most of what I ship: an installable client that ke
 
 ---
 
+## 📊 Activity
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/henriquematere/henriquematere/main/assets/streak.svg" alt="Contribution streak" width="495" />
+
+</div>
+
+---
+
 ## 🛠️ Tech Stack
 
 **Frontend**

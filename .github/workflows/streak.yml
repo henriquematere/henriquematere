@@ -1,0 +1,79 @@
+name: Atualiza card de atividade
+
+# Gera o SVG de contribuicoes e commita no repositorio.
+# Motivo: consumir o servico direto do README deixa a pagina de perfil
+# dependente de uma instancia publica compartilhada que estoura o rate
+# limit da API do GitHub e devolve "Failed to retrieve contributions".
+# Commitando o arquivo, a pagina le um estatico do proprio repo. Se a
+# geracao falhar num dia, o arquivo anterior permanece e nada quebra.
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # todo dia as 06:00 UTC (03:00 em Sao Paulo)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: streak-card
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Baixar SVG com retentativa
+        id: fetch
+        run: |
+          set -uo pipefail
+          URL="https://streak-stats.demolab.com/?user=${GITHUB_REPOSITORY_OWNER}&hide_border=true&theme=github-dark-blue"
+          TMP="$(mktemp)"
+
+          for tentativa in 1 2 3 4 5; do
+            echo "::group::Tentativa $tentativa"
+            CODE="$(curl -sS --max-time 60 -w '%{http_code}' "$URL" -o "$TMP" || echo 000)"
+            SIZE="$(wc -c < "$TMP")"
+            echo "HTTP $CODE, $SIZE bytes"
+
+            # O servico responde 200 mesmo quando falha, devolvendo um SVG
+            # com a mensagem de erro. Validar o conteudo, nao so o status.
+            if [ "$CODE" = "200" ] && [ "$SIZE" -gt 1000 ] \
+               && ! grep -qi 'Failed to retrieve\|rate limit' "$TMP" \
+               && grep -q 'Total Contributions' "$TMP"; then
+              echo "SVG valido"
+              mkdir -p assets
+              mv "$TMP" assets/streak.svg
+              echo "ok=true" >> "$GITHUB_OUTPUT"
+              echo "::endgroup::"
+              exit 0
+            fi
+
+            echo "resposta invalida, aguardando"
+            echo "::endgroup::"
+            sleep $((tentativa * 15))
+          done
+
+          # Nao falha o job: manter o arquivo antigo e melhor que quebrar
+          # o perfil, e o proximo agendamento tenta de novo.
+          echo "::warning::Nao foi possivel gerar o card hoje. Mantendo a versao anterior."
+          echo "ok=false" >> "$GITHUB_OUTPUT"
+
+      - name: Commitar se mudou
+        if: steps.fetch.outputs.ok == 'true'
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- assets/streak.svg; then
+            echo "Sem mudanca no card, nada a commitar."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/streak.svg
+          git commit -m "chore: atualiza card de atividade"
+          git push

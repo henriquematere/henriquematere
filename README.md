@@ -24,16 +24,6 @@ The same shape repeats across most of what I ship: an installable client that ke
 
 ---
 
-## 📊 Activity
-
-<div align="center">
-
-![Streak](https://streak-stats.demolab.com/?user=henriquematere&hide_border=true&theme=github-dark-blue)
-
-</div>
-
----
-
 ## 🛠️ Tech Stack
 
 **Frontend**
